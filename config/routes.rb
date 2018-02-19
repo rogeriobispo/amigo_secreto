@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 	root to: 'pages#home'
 	resources :campaigns, except: [:new] do
-	  post 'raffle', on: :nember
+#	  post 'raffle', on: :nember
     # post 'raffle', on: :collection
 	end
 
