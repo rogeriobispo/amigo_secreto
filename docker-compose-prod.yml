@@ -6,12 +6,6 @@ services:
     volumes:
       - 'postgres:/var/lib/postgresql/data'
 
-  mailcatcher:
-    image: yappabe/mailcatcher
-    ports:
-      - 1025:1025
-      - 1080:1080
-
   redis:
     image: 'redis:3.2-alpine'
     command: redis-server
@@ -27,10 +21,10 @@ services:
       - 'app'
     build: .
     command: bash start_jobs
-    volumes:
-      - '.:/amigo_secreto'
     volumes_from:
       - box
+    env_file:
+      - '.env-prod'
 
   app:
     depends_on:
@@ -40,10 +34,10 @@ services:
     command: bash start
     ports:
       - '3000:3000'
-    volumes:
-      - '.:/amigo_secreto'
     volumes_from:
     - box
+    env_file:
+    - '.env-prod'
 
   box:
     image: busybox
@@ -54,4 +48,3 @@ volumes:
   redis:
   postgres:
   box:
-
