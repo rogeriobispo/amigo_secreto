@@ -1,7 +1,7 @@
 class CampaignRaffleJob < ApplicationJob
   queue_as :emails
 
-  def perform(*args)
+  def perform(campaign)
     results = RaffleService.new(campaign).call
 
     campaign.members.each {|m| m.set_pixel}
