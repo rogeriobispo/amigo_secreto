@@ -1,24 +1,48 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Motivation
+    An online app to organize secret santa( amigo secreto pt-br).
+    include exclude raffle easy everybody will participate by email.
 
-Things you may want to cover:
+![Screenshot](https://github.com/rogeriobispo/amigo_secreto/blob/master/public/Captura%20de%20tela%20de%202018-03-05%2010-52-45.png)
 
-* Ruby version
+## Requiriments
+    * Ruby 2.3.6
+    * Rails 5.0.6
+    * Postgres 9.5
+    * Redis
+    * Sidekiq
+    * MailCatcher
 
-* System dependencies
+## Optional
+    * docker
+    * docker-compose
 
-* Configuration
+## Setup
+    * git clone git@github.com:rogeriobispo/amigo_secreto.git
+    * bundle install
+    * rails db:create
+    * rails db:migrate
+    * puma -C config/puma.rb
 
-* Database creation
+## Docker Setup
+   * docker-compose build
+   * docker-compose run --rm app bin/setup
+   * docker-compose up
 
-* Database initialization
+## Server up
+    * puma -C config/puma.rb
 
-* How to run the test suite
+## Database creation
+    * rails db:create
 
-* Services (job queues, cache servers, search engines, etc.)
+## Database Initialization
+    * rails db:create
+    * rails db:migrate
 
-* Deployment instructions
+## How to run Test suite
+    * rspec -fd
 
-* ...
+
+
+
