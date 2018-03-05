@@ -1,4 +1,18 @@
 $(document).on 'turbolinks:load', ->
+  $('.member_list input').bind 'blur', (e) ->
+    field = $(this)
+    member_id = field.data('id')
+
+    $.ajax '/members/'+ member_id,
+        type: 'PUT'
+        dataType: 'json',
+        data: { member: { "#{field.attr('id')}": "#{field.val()}"} }
+        success: (data, text, jqXHR) ->
+          Materialize.toast('Membro atualizado', 4000, 'green')
+        error: (jqXHR, textStatus, errorThrown) ->
+          Materialize.toast('Problema na atualização de membro', 4000, 'red')
+    return false
+
   $('#member_email, #member_name').keypress (e) ->
     if e.which == 13 && valid_email($( "#member_email" ).val()) && $( "#member_name" ).val() != ""
       $('.new_member').submit()

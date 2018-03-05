@@ -13,6 +13,7 @@ $(document).on 'turbolinks:load', ->
           Materialize.toast('Problema na atualização da Campanha', 4000, 'red')
     return false
 
+
   $('.remove_campaign').on 'submit', (e) ->
     $.ajax e.target.action,
         type: 'DELETE'
@@ -34,3 +35,18 @@ $(document).on 'turbolinks:load', ->
         error: (jqXHR, textStatus, errorThrown) ->
           Materialize.toast(jqXHR.responseText, 4000, 'red')
     return false
+
+  $('#btnremovecampaign').on 'click', ->
+    $('.modal').modal
+      dismissible: false
+    option = $('#modal1').modal('open')
+
+  $('#modalyes').on 'click', ->
+    $('.remove_campaign').submit()
+    Materialize.toast('Campanha removida com sucesso', 4000, 'green')
+
+  $('#modalno').on 'click', ->
+    Materialize.toast('Remoção cancelada', 4000, 'red')
+
+
+
