@@ -33,6 +33,8 @@ services:
       - box
 
   app:
+    stdin_open: true
+    tty: true
     depends_on:
       - 'postgres'
       - 'redis'

@@ -26,7 +26,7 @@ class MembersController < ApplicationController
 
   def update
     respond_to do |format|
-      if member_not_present? && @member.update(member_params)
+      if @member.update(member_params)
         format.json { render json: true }
       else
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -42,9 +42,6 @@ class MembersController < ApplicationController
 
   private
 
-  def member_not_present?
-    !Member.find_by(email: member_params[:email]).present?
-  end
   def set_member
     @member = Member.find(params[:id])
   end

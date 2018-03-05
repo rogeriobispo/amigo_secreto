@@ -3,15 +3,11 @@ $(document).on 'turbolinks:load', ->
     field = $(this)
     member_id = field.data('id')
 
-    $.ajax '/members/'+ member_id,
-        type: 'PUT'
-        dataType: 'json',
-        data: { member: { "#{field.attr('id')}": "#{field.val()}"} }
-        success: (data, text, jqXHR) ->
-          Materialize.toast('Membro atualizado', 4000, 'green')
-        error: (jqXHR, textStatus, errorThrown) ->
-          Materialize.toast('Problema na atualização de membro', 4000, 'red')
-    return false
+    if field.attr('id') == 'email'
+      update_member(member_id, field) if valid_email(field.val())
+    else
+      update_member(member_id, field)
+
 
   $('#member_email, #member_name').keypress (e) ->
     if e.which == 13 && valid_email($( "#member_email" ).val()) && $( "#member_name" ).val() != ""
@@ -50,6 +46,17 @@ $(document).on 'turbolinks:load', ->
 
 valid_email = (email) ->
   /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)
+
+update_member  = (member_id, field) ->
+  $.ajax '/members/'+ member_id,
+      type: 'PUT'
+      dataType: 'json',
+      data: { member: { "#{field.attr('id')}": "#{field.val()}"} }
+      success: (data, text, jqXHR) ->
+        Materialize.toast('Membro atualizado', 4000, 'green')
+      error: (jqXHR, textStatus, errorThrown) ->
+        Materialize.toast('Problema na atualização de membro', 4000, 'red')
+  return false
 
 insert_member = (id, name, email) ->
   $('.member_list').append(
