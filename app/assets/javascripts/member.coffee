@@ -8,7 +8,6 @@ $(document).on 'turbolinks:load', ->
     else
       update_member(member_id, field)
 
-
   $('#member_email, #member_name').keypress (e) ->
     if e.which == 13 && valid_email($( "#member_email" ).val()) && $( "#member_name" ).val() != ""
       $('.new_member').submit()
