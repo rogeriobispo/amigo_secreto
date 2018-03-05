@@ -1,0 +1,69 @@
+<container class="body-drip">
+  <spacer size="16"></spacer>
+
+  <!-- <center> -->
+    <row>
+      <columns large="2">
+      </columns>
+      <columns large="1" class="center">
+        <img src="http://localhost:3000/assets/logo.png" alt="">
+      </columns>
+      <columns large="8">
+        	<h4>Nosso Amigo Secreto</h4>
+      </columns>
+    </row>
+  <!-- </center> -->
+
+  <spacer size="16"></spacer>
+
+  <row>
+    <columns>
+      <h4 class="text-center"><%= @campaign.title %></h4>
+      <p class="text-center"><b><%= (@campaign.event_date)? "#{@campaign.event_date.strftime("%d/%m/%y")} | " : '' %></b><b><%= @campaign.location %></b></p>
+      <spacer size="16"></spacer>
+      <p class="text-center"><%= @campaign.description %></p>
+    </columns>
+  </row>
+
+  <hr/>
+
+  <row>
+    <columns>
+      <spacer size="4"></spacer>
+      <p class="text-center">Prezado <%= first_name(@user)%>, Ocorreram erros ao processar o sorteio de seu amigo secreto,
+        poderia tentar novamente, caso o problema persista entre em contato conosco através do email: rogeriopd10@gmail.com</p>
+      <spacer size="8"></spacer>
+      <spacer size="8"></spacer>
+      <center>
+        <button href="http://onebitcode.com" class="" >Crie sua campanha também</button>
+      </center>
+    </columns>
+  </row>
+
+
+  <wrapper class="secondary">
+
+    <spacer size="16"></spacer>
+
+    <row>
+    </row>
+
+    <row>
+      <columns large="6">
+      </columns>
+      <columns large="6">
+      </columns>
+    </row>
+  </wrapper>
+
+  <wrapper class="secondary">
+
+    <spacer size="2"></spacer>
+
+    <row>
+    </row>
+
+  </wrapper>
+
+</container>
+

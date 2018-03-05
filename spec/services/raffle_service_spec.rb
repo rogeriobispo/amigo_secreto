@@ -38,7 +38,12 @@ describe RaffleService do
       end
 
       it "a member x don't get a member y that get the member x" do
-        # Desafio
+        @results.each do |r|
+          member = r.first
+          friend = r.last
+          friend_raffled = @results.select{|hash| hash == friend}.to_a.flatten.last
+          expect(friend_raffled).not_to eq(member)
+        end
       end
 
     end
