@@ -2,7 +2,7 @@
 
 ## Motivation
     An online app to organize secret santa( amigo secreto pt-br).
-    include exclude raffle easy everybody will participate by email.
+    include, exclude and raffle easy everybody will participate by email.
 
 ![Screenshot](https://github.com/rogeriobispo/amigo_secreto/blob/master/public/Captura%20de%20tela%20de%202018-03-05%2010-52-45.png)
 
@@ -42,6 +42,7 @@
 
 ## How to run Test suite
     * rspec -fd
+
 
 
 
