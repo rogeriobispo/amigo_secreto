@@ -141,10 +141,6 @@ RSpec.describe CampaignsController, type: :controller do
           create(:member, campaign: @campaign)
           post :raffle, params: { id: @campaign.id }
         end
-
-        it 'returns http success' do
-          expect(response).to have_http_status(:success)
-        end
       end
 
       context 'No more than two members' do
