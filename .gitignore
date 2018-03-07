@@ -19,3 +19,4 @@
 .env-prod
 public/assets/
 .rubocop.yml
+coverage/

@@ -45,6 +45,7 @@ gem 'jbuilder', '~> 2.5'
 group :test do
   gem "factory_bot_rails"
   gem "ffaker"
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
