@@ -29,7 +29,6 @@ $(document).on 'turbolinks:load', ->
     return false
 
   $('.new_member').on 'submit', (e) ->
-    console.log('submit')
     $.ajax e.target.action,
         type: 'POST'
         dataType: 'json',
