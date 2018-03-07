@@ -3,9 +3,8 @@ class CampaignRaffleJob < ApplicationJob
 
   def perform(campaign)
     results = RaffleService.new(campaign).call
-    results = false
 
-    campaign.members.each {|m| m.set_pixel}
+    campaign.members.each(&:set_pixel)
     results.each do |r|
       CampaignMailer.raffle(campaign, r.first, r.last).deliver_now
     end

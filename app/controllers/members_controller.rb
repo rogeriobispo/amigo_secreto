@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :authenticate_user!, except: [:opened]
 
   before_action :set_member, only: [:show, :destroy, :update]
-  before_action :is_owner?, only: [:destroy, :update]
+  before_action :owner?, only: [:destroy, :update]
   before_action :set_member_by_token, only: [:opened]
 
   def create
@@ -36,7 +36,7 @@ class MembersController < ApplicationController
 
   def opened
     @member.update(open: true)
-    gif = Base64.decode64("R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==")
+    gif = Base64.decode64('R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==')
     render text: gif, type: 'image/gif'
   end
 
@@ -54,7 +54,7 @@ class MembersController < ApplicationController
     params.require(:member).permit(:name, :email, :campaign_id)
   end
 
-  def is_owner?
+  def owner?
     unless current_user == @member.campaign.user
       respond_to do |format|
         format.json { render json: false, status: :forbidden }
