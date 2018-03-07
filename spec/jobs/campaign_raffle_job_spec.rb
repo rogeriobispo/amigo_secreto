@@ -10,9 +10,9 @@ RSpec.describe CampaignRaffleJob, type: :job do
     @campaign.reload
   end
 
-  describe "#perform_later" do
+  describe '#perform_later' do
     it 'should have enqueued job' do
-      expect{ described_class.perform_later(@campaign) }.to have_enqueued_job
+      expect { described_class.perform_later(@campaign) }.to have_enqueued_job
     end
 
     it 'should have enqueued job only once' do
@@ -21,9 +21,8 @@ RSpec.describe CampaignRaffleJob, type: :job do
     end
 
     it 'should have enqueued with campaign' do
-      expect{
-        CampaignRaffleJob.set(queue: 'email').perform_later(@campaign)
-      }.to have_enqueued_job.with(@campaign).on_queue("email")
+      expect { CampaignRaffleJob.set(queue: 'email').perform_later(@campaign) }
+        .to have_enqueued_job.with(@campaign).on_queue('email')
     end
   end
 end
