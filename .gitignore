@@ -18,3 +18,4 @@
 
 .env-prod
 public/assets/
+.rubocop.yml

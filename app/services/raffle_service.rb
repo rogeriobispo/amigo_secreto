@@ -16,13 +16,13 @@ class RaffleService
       loop do
         friend = friends_list.sample
 
-        if friends_list.count == 1 and friend == m
+        if friends_list.count == 1 && friend == m
           results = {}
           members_list = @campaign.members
           friends_list = @campaign.members
           i = 0
           break
-        elsif friend != m and results[friend] != m
+        elsif friend != m && results[friend] != m
           results[m] = friend
           friends_list -= [friend]
           break
