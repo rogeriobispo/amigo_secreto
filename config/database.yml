@@ -17,5 +17,4 @@ test:
 production:
   <<: *default
   database: amigo_secreto_production
-  username: amigo_secreto
   password: <%= ENV['AMIGO_SECRETO_DATABASE_PASSWORD'] %>

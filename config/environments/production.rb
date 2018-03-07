@@ -25,7 +25,7 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # config.action_mailer.default_url_options = { :host => request.host_with_port }
+  config.action_mailer.default_url_options = { :host => '159.65.243.248' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
