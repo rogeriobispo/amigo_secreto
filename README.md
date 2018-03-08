@@ -51,7 +51,7 @@
 
 ## App link
 
-[Secret Santa](http://159.65.243.248) 
+[Secret Santa](http://159.65.253.167/) 
     available until: 2017-04-07
     email is blocked at digitalocian I'm working to solve it.
 
