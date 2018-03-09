@@ -35,7 +35,7 @@
       <p class="text-center">Seu amigo secreto é:&nbsp;<b><u><%= @friend.name %></u></b></p>
       <spacer size="8"></spacer>
       <center>
-        <button href="http://onebitcode.com" class="" >Crie sua campanha também</button>
+        <button href="http://159.65.253.167" class="" >Crie sua campanha também</button>
       </center>
     </columns>
   </row>
