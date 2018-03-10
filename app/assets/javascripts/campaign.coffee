@@ -2,6 +2,12 @@ $(document).on 'turbolinks:load', ->
   $('.update_campaign input').bind 'blur', ->
     $('.update_campaign').submit()
 
+  $('#campaign_event_hour').on 'keyup', (e) ->
+    value = $(this).val()
+    $(this).val(value.concat(':')) if value.length == 2
+    $(this).val(value.substring(0,(value.length - 1))) if value.length == 6
+
+
   $('.update_campaign').on 'submit', (e) ->
     $.ajax e.target.action,
         type: 'PUT'
